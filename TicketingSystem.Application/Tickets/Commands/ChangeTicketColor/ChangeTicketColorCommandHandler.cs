@@ -20,6 +20,5 @@ public class ChangeTicketColorCommandHandler : IRequestHandler<ChangeTicketColor
         tickets.ForEach(t => t.ChangeTicketColor());
         _ticketRepository.Update(tickets);
         await _unitOfWork.SaveChangesAsync();
-        throw new NotImplementedException();
     }
 }

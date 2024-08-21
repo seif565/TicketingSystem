@@ -25,7 +25,7 @@ namespace TicketingSystem.Controllers
             return Ok(tickets);
         }
 
-        [HttpPut]
+        [HttpPatch]
         public async Task<IActionResult> HandleTicket(HandleTicketCommand command) 
         {
             await _mediator.Send(command);

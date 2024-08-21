@@ -27,10 +27,11 @@ public class TicketRepository : ITicketRepository
 
     public async Task<List<Ticket>> GetUnprocesssedTicketsAsync()
     {
+        DateTime cutoffTime = DateTime.Now.AddMinutes(-60);
         return await _ticketDbContext.Tickets
             .Where(
                 x => !x.Handled && 
-                (x.CreatedAt - DateTime.Now).Minutes <= 60
+                x.CreatedAt >= cutoffTime
             )
             .ToListAsync();
     }

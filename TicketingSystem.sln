@@ -3,19 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketingSystem", "TicketingSystem\TicketingSystem.csproj", "{06FF1B3B-66B2-4270-B463-CD2E20F261E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketingSystem", "TicketingSystem\TicketingSystem.csproj", "{06FF1B3B-66B2-4270-B463-CD2E20F261E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{3E359B77-E959-42B0-8662-5388F73FD391}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{E831B869-984F-407B-9184-3F235ECB1D1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketingSystem.Domain", "TicketingSystem.Domain\TicketingSystem.Domain.csproj", "{40DDE143-2B64-4286-AE6D-160434D62E4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketingSystem.Domain", "TicketingSystem.Domain\TicketingSystem.Domain.csproj", "{40DDE143-2B64-4286-AE6D-160434D62E4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketingSystem.Application", "TicketingSystem.Application\TicketingSystem.Application.csproj", "{8F363977-B2D3-4972-89D6-12393CA361FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketingSystem.Application", "TicketingSystem.Application\TicketingSystem.Application.csproj", "{8F363977-B2D3-4972-89D6-12393CA361FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketingSystem.Infrastructure", "TicketingSystem.Infrastructure\TicketingSystem.Infrastructure.csproj", "{DC357B48-31BA-4D7E-A604-8B8D2C235AFF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketingSystem.Presentation", "TicketingSystem.Presentation\TicketingSystem.Presentation.csproj", "{EEF366A9-5829-4F7F-B476-A589744393B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketingSystem.Infrastructure", "TicketingSystem.Infrastructure\TicketingSystem.Infrastructure.csproj", "{DC357B48-31BA-4D7E-A604-8B8D2C235AFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +37,6 @@ Global
 		{DC357B48-31BA-4D7E-A604-8B8D2C235AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC357B48-31BA-4D7E-A604-8B8D2C235AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC357B48-31BA-4D7E-A604-8B8D2C235AFF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EEF366A9-5829-4F7F-B476-A589744393B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EEF366A9-5829-4F7F-B476-A589744393B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EEF366A9-5829-4F7F-B476-A589744393B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EEF366A9-5829-4F7F-B476-A589744393B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,7 +45,6 @@ Global
 		{40DDE143-2B64-4286-AE6D-160434D62E4F} = {3E359B77-E959-42B0-8662-5388F73FD391}
 		{8F363977-B2D3-4972-89D6-12393CA361FA} = {3E359B77-E959-42B0-8662-5388F73FD391}
 		{DC357B48-31BA-4D7E-A604-8B8D2C235AFF} = {E831B869-984F-407B-9184-3F235ECB1D1A}
-		{EEF366A9-5829-4F7F-B476-A589744393B5} = {E831B869-984F-407B-9184-3F235ECB1D1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A4CD8F4-6494-4DE3-985B-1675D01431EE}

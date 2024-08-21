@@ -12,12 +12,12 @@ namespace TicketingSystem.Domain.Entities
             Governorate = governorate;
             City = city;
             District = district;
-            TicketStatus = TicketStatus.Yellow;
+            TicketColor = TicketColor.Yellow;
         }
 
         public DateTime CreatedAt { get; private set; }
         public string PhoneNumber { get; private set; }
-        public TicketStatus TicketStatus { get; private set; }
+        public TicketColor TicketColor { get; private set; }
         public string Governorate { get; private set; }
         public string City { get; private set; }
         public string District { get; private set; }
@@ -30,12 +30,12 @@ namespace TicketingSystem.Domain.Entities
 
         public void ChangeTicketColor()
         {
-            TicketStatus = (DateTime.Now - CreatedAt).TotalMinutes switch
+            TicketColor = (CreatedAt - DateTime.Now).TotalMinutes switch
             {
-                > 60 => TicketStatus.Red,
-                >= 45 => TicketStatus.Blue,
-                >= 30 => TicketStatus.Green,
-                _ => TicketStatus.Red,
+                > 60 => TicketColor.Red,
+                >= 45 => TicketColor.Blue,
+                >= 30 => TicketColor.Green,
+                _ => TicketColor.Yellow,
             };
         }
     }
