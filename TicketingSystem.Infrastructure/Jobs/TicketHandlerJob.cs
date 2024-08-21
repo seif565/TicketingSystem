@@ -1,21 +1,23 @@
-﻿using TicketingSystem.Application.Jobs;
+﻿using MediatR;
+using TicketingSystem.Application.Jobs;
+using TicketingSystem.Application.Tickets.Commands.ChangeTicketColor;
 using TicketingSystem.Domain.Abstractions;
 
-namespace TicketingSystem.Infrastructure.Jobs
+namespace TicketingSystem.Infrastructure.Jobs;
+
+public class TicketHandlerJob : ITicketHandlerJob
 {
-    public class TicketHandlerJob : ITicketHandlerJob
+    private readonly ITicketRepository _ticketRepository;
+    private readonly IMediator _mediator;
+
+    public TicketHandlerJob(ITicketRepository ticketRepository, IMediator mediator)
     {
-        private readonly ITicketRepository _ticketRepository;
+        _ticketRepository = ticketRepository;
+        _mediator = mediator;
+    }
 
-        public TicketHandlerJob(ITicketRepository ticketRepository)
-        {
-            _ticketRepository = ticketRepository;
-        }
-
-        public async Task UpdateTicketStatusesAsync(CancellationToken cancellationToken)
-        {
-
-            throw new NotImplementedException();
-        }
+    public async Task UpdateTicketStatusesAsync(CancellationToken cancellationToken)
+    {
+        await _mediator.Send(new ChangeTicketColorCommand(), cancellationToken);            
     }
 }

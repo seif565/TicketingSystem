@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using TicketingSystem.Application.Jobs;
 
 namespace TicketingSystem.Application.Extensions;
 
@@ -11,7 +12,7 @@ public static class ApplicationServiceRegistration
         services.AddMediatR(configuration =>
         {
             configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-        });                
+        });                                
         return services;
     }
 }

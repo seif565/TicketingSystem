@@ -1,12 +1,11 @@
 ﻿using MediatR;
 
-namespace TicketingSystem.Application.Tickets.Commands.CreateTicket
+namespace TicketingSystem.Application.Tickets.Commands.CreateTicket;
+
+public class CreateTicketCommand : IRequest
 {
-    public class CreateTicketCommand : IRequest
-    {
-        public string PhoneNumber { get; set; }
-        public string Governorate { get; set; }
-        public string City { get; set; }
-        public string District { get; set; }
-    }
+    public string PhoneNumber { get; set; }
+    public string Governorate { get; set; }
+    public string City { get; set; }
+    public string District { get; set; }
 }

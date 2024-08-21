@@ -1,7 +1,6 @@
-﻿namespace TicketingSystem.Application.Jobs
+﻿namespace TicketingSystem.Application.Jobs;
+
+public interface ITicketHandlerJob
 {
-    public interface ITicketHandlerJob
-    {
-        Task UpdateTicketStatusesAsync(CancellationToken cancellationToken);
-    }
+    Task UpdateTicketStatusesAsync(CancellationToken cancellationToken);
 }
