@@ -4,7 +4,7 @@ using TicketingSystem.Domain.Entities;
 
 namespace TicketingSystem.Infrastructure.Repositories
 {
-    internal class TicketRepository : ITicketRepository
+    public class TicketRepository : ITicketRepository
     {
         private readonly TicketDbContext _ticketDbContext;
 
@@ -16,6 +16,7 @@ namespace TicketingSystem.Infrastructure.Repositories
         public async Task<List<Ticket>> GetTicketsAsync(int pageNumber = 0, int pageSize = 50)
         {
             return await _ticketDbContext.Tickets
+                .OrderByDescending(x => x.CreatedAt)
                 .Skip(pageNumber * pageSize)
                 .Take(pageSize)
                 .ToListAsync();

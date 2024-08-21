@@ -1,6 +1,9 @@
 
 using Microsoft.EntityFrameworkCore;
 using TicketingSystem.Infrastructure;
+using TicketingSystem.Infrastructure.Repositories;
+using TicketingSystem.Application;
+using TicketingSystem.Domain.Abstractions;
 
 namespace TicketingSystem;
 
@@ -13,8 +16,10 @@ public class Program
         // Add services to the container.
         builder.Services.AddDbContext<TicketDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("TicketsDb")));
-
-        builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(typeof(Program).Assembly));
+        builder.Services.AddScoped<ITicketRepository, TicketRepository>();
+        builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+        builder.Services.AddApplicationServices();
+        //builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

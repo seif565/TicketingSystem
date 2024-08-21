@@ -6,7 +6,7 @@ namespace TicketingSystem.Domain.Entities
     public class Ticket : Entity
     {
         private Ticket(string phoneNumber, string governorate, string city, string district)
-        {
+        {            
             CreatedAt = DateTime.Now;
             PhoneNumber = phoneNumber;
             Governorate = governorate;
@@ -21,10 +21,14 @@ namespace TicketingSystem.Domain.Entities
         public string Governorate { get; private set; }
         public string City { get; private set; }
         public string District { get; private set; }
+        public bool Handled { get; private set; }
         public static Ticket Create( string phoneNumber, string governorate, string city, string district)
             => new Ticket(phoneNumber, governorate, city, district);
 
-        public void HandleTicket()
+        public void HandleTicket() => Handled = true;
+        
+
+        public void ChangeTicketColor()
         {
             TicketStatus = (DateTime.Now - CreatedAt).TotalMinutes switch
             {

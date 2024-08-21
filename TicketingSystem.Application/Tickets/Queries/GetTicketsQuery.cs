@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using TicketingSystem.Application.DTOs.Ticket;
 
 namespace TicketingSystem.Application.Tickets.Queries
 {
