@@ -13,6 +13,9 @@ namespace TicketingSystem.Infrastructure.Repositories
             _ticketDbContext = ticketDbContext;
         }
 
+        public async Task<Ticket?> GetTicketAsync(int id)
+            => await _ticketDbContext.Tickets.FirstOrDefaultAsync(x => x.Id == id);        
+
         public async Task<List<Ticket>> GetTicketsAsync(int pageNumber = 0, int pageSize = 50)
         {
             return await _ticketDbContext.Tickets
@@ -22,11 +25,26 @@ namespace TicketingSystem.Infrastructure.Repositories
                 .ToListAsync();
         }
 
+        public async Task<List<Ticket>> GetUnprocesssedTicketsAsync()
+        {
+            return await _ticketDbContext.Tickets
+                .Where(x => !x.Handled)
+                .ToListAsync();
+        }
+
         public async Task InsertTicket(Ticket ticket)
         {
-            await _ticketDbContext.Tickets.AddAsync(ticket);
-            await _ticketDbContext.SaveChangesAsync();
-            throw new NotImplementedException();
+            await _ticketDbContext.Tickets.AddAsync(ticket);                        
+        }
+
+        public void Update(List<Ticket> tickets)
+        {
+            _ticketDbContext.Tickets.UpdateRange(tickets);
+        }
+
+        public void Update(Ticket ticket)
+        {
+            _ticketDbContext.Tickets.Update(ticket);
         }
     }
 }

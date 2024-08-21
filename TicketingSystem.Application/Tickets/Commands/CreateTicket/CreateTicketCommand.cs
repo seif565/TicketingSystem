@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace TicketingSystem.Application.Tickets.Commands
+namespace TicketingSystem.Application.Tickets.Commands.CreateTicket
 {
     public class CreateTicketCommand : IRequest
     {

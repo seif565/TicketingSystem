@@ -2,8 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using TicketingSystem.Infrastructure;
 using TicketingSystem.Infrastructure.Repositories;
-using TicketingSystem.Application;
 using TicketingSystem.Domain.Abstractions;
+using TicketingSystem.Application.Extensions;
 
 namespace TicketingSystem;
 

@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using TicketingSystem.Application.DTOs.Ticket;
+using TicketingSystem.Application.Tickets.Queries.GetTickets;
 using TicketingSystem.Domain.Abstractions;
 
 namespace TicketingSystem.Application.Tickets.Queries

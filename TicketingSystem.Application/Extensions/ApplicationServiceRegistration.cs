@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace TicketingSystem.Application;
+namespace TicketingSystem.Application.Extensions;
 
 public static class ApplicationServiceRegistration
 {
@@ -11,7 +11,7 @@ public static class ApplicationServiceRegistration
         services.AddMediatR(configuration =>
         {
             configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-        });
+        });                
         return services;
     }
 }

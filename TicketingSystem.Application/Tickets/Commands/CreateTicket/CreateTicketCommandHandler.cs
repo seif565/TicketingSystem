@@ -2,7 +2,7 @@
 using TicketingSystem.Domain.Abstractions;
 using TicketingSystem.Domain.Entities;
 
-namespace TicketingSystem.Application.Tickets.Commands
+namespace TicketingSystem.Application.Tickets.Commands.CreateTicket
 {
     internal sealed class CreateTicketCommandHandler : IRequestHandler<CreateTicketCommand>
     {
@@ -17,9 +17,9 @@ namespace TicketingSystem.Application.Tickets.Commands
 
         public async Task Handle(CreateTicketCommand request, CancellationToken cancellationToken)
         {
-            Ticket ticket = Ticket.Create(request.PhoneNumber,"Test", "TEST", "TEst");
+            Ticket ticket = Ticket.Create(request.PhoneNumber, request.Governorate, request.City, request.District);
             await _ticketRepository.InsertTicket(ticket);
-            await _unitOfWork.SaveChangesAsync();            
+            await _unitOfWork.SaveChangesAsync();
         }
     }
 }
