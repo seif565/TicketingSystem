@@ -5,12 +5,13 @@ namespace TicketingSystem.Infrastructure.Repositories;
 
 public class UnitOfWork : IUnitOfWork
 {
-    private readonly TicketDbContext _context;
+    private readonly TicketDbContext _context;    
 
     public UnitOfWork(TicketDbContext context)
     {
         _context = context;
     }
+
 
     public void SaveChanges()
     {
@@ -20,5 +21,9 @@ public class UnitOfWork : IUnitOfWork
     public async Task SaveChangesAsync()
     {
         await _context.SaveChangesAsync();
+    }
+    public void Dispose()
+    {
+        _context?.Dispose();
     }
 }

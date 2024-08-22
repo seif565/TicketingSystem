@@ -1,6 +1,6 @@
 ﻿namespace TicketingSystem.Domain.Abstractions;
 
-public interface IUnitOfWork
+public interface IUnitOfWork : IDisposable
 {
     Task SaveChangesAsync();
     void SaveChanges();
