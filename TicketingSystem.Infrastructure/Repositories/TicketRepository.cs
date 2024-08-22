@@ -5,10 +5,13 @@ using TicketingSystem.Domain.Entities;
 namespace TicketingSystem.Infrastructure.Repositories;
 
 public class TicketRepository : BaseRepository<Ticket>, ITicketRepository
-{
+{    
     private readonly TicketDbContext _ticketDbContext;
 
-    public TicketRepository(TicketDbContext ticketDbContext) : base(ticketDbContext) { }    
+    public TicketRepository(TicketDbContext ticketDbContext) : base(ticketDbContext)
+    {
+        _ticketDbContext = ticketDbContext;
+    }
 
     public async Task<Ticket?> GetTicketAsync(int id)
         => await _ticketDbContext.Tickets.FirstOrDefaultAsync(x => x.Id == id);        
