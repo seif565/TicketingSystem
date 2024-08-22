@@ -18,7 +18,7 @@ public class ChangeTicketColorCommandHandler : IRequestHandler<ChangeTicketColor
     {
         List<Domain.Entities.Ticket> tickets = await _ticketRepository.GetUnprocesssedTicketsAsync();
         tickets.ForEach(t => t.ChangeTicketColor());
-        _ticketRepository.Update(tickets);
+        _ticketRepository.UpdateRange(tickets);
         await _unitOfWork.SaveChangesAsync();
     }
 }

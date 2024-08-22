@@ -18,7 +18,6 @@ namespace TicketingSystem.Application.Tickets.Queries
         {
             ICollection<Domain.Entities.Ticket> ticketsDto = await _ticketRepository.GetTicketsAsync(request.PageCount, request.PageSize);
             return ticketsDto.Select(x => new TicketDto { CreatedAt = x.CreatedAt, Id = x.Id, PhoneNumber = x.PhoneNumber }).ToList();
-            throw new NotImplementedException();
         }
     }
 }

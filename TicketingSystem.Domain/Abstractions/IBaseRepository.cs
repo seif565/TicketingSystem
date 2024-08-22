@@ -11,6 +11,7 @@ namespace TicketingSystem.Domain.Abstractions
         Task AddAsync(TEntity entity);
         void Add(TEntity entity);
         void Update(TEntity entity);
+        void UpdateRange(ICollection<TEntity> collection);
         void Delete(TEntity entity);
     }
 }

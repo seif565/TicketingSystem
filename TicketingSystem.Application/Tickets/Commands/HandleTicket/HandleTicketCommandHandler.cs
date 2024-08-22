@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using TicketingSystem.Domain.Abstractions;
+using TicketingSystem.Domain.Exceptions;
 
 namespace TicketingSystem.Application.Tickets.Commands.HandleTicket
 {
@@ -16,16 +17,11 @@ namespace TicketingSystem.Application.Tickets.Commands.HandleTicket
 
         public async Task Handle(HandleTicketCommand request, CancellationToken cancellationToken)
         {
-            var ticket = await _ticketRepository.GetTicketAsync(request.Id) ?? throw new Exception();
+            var ticket = await _ticketRepository.GetTicketAsync(request.Id) ?? throw new NotFoundException(request.Id);
             ticket?.HandleTicket();
             _ticketRepository.Update(ticket);
             await _unitOfWork.SaveChangesAsync();
-            //List<Domain.Entities.Ticket> tickets = await _ticketRepository.GetUnprocesssedTicketsAsync();
-            //tickets.ForEach(t =>
-            //{
-            //    t.ChangeTicketColor();
-            //});
-            //_ticketRepository.Update(tickets);
+            
         }
     }
 }

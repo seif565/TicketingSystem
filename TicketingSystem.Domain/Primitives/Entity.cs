@@ -1,9 +1,8 @@
-﻿namespace TicketingSystem.Domain.Primitives
+﻿namespace TicketingSystem.Domain.Primitives;
+
+public abstract class Entity
 {
-    public abstract class Entity
-    {
-        public int Id { get; protected set; }
-        protected Entity(int id) => Id = id;
-        protected Entity() { }
-    }
+    public int Id { get; protected set; }
+    protected Entity(int id) => Id = id;
+    protected Entity() { }
 }

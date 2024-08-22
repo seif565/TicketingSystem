@@ -18,7 +18,7 @@ internal sealed class CreateTicketCommandHandler : IRequestHandler<CreateTicketC
     public async Task Handle(CreateTicketCommand request, CancellationToken cancellationToken)
     {
         Ticket ticket = Ticket.Create(request.PhoneNumber, request.Governorate, request.City, request.District);
-        await _ticketRepository.InsertTicket(ticket);
-        await _unitOfWork.SaveChangesAsync();
+        await _ticketRepository.AddAsync(ticket);
+        await _unitOfWork.SaveChangesAsync();        
     }
 }
