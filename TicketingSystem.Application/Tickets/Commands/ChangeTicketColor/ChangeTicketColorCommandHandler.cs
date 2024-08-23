@@ -17,7 +17,10 @@ public class ChangeTicketColorCommandHandler : IRequestHandler<ChangeTicketColor
     public async Task Handle(ChangeTicketColorCommand request, CancellationToken cancellationToken)
     {
         List<Domain.Entities.Ticket> tickets = await _ticketRepository.GetUnprocesssedTicketsAsync();
-        tickets.ForEach(t => t.ChangeTicketColor());
+        tickets.ForEach(t => {
+            t.ChangeTicketColor();
+            t.HandleOverDueTickets();
+            });
         _ticketRepository.UpdateRange(tickets);
         await _unitOfWork.SaveChangesAsync();
     }

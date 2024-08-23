@@ -27,12 +27,11 @@ public class TicketRepository : BaseRepository<Ticket>, ITicketRepository
 
     public async Task<List<Ticket>> GetUnprocesssedTicketsAsync()
     {
-        DateTime cutoffTime = DateTime.Now.AddMinutes(-60);
         return await _ticketDbContext.Tickets
             .Where(
-                x => !x.Handled && 
-                x.CreatedAt >= cutoffTime
-            )
+                x => !x.Handled 
+                && x.TicketColor != Domain.Enums.TicketColor.Red
+            )            
             .ToListAsync();
     }
 

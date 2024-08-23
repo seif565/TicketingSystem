@@ -28,6 +28,6 @@ public class HangFireSetup : IHangFireSetup
         recurringJobManager.AddOrUpdate(
             "UpdateTicketStatuses",
             () => ticketStatusUpdater.UpdateTicketStatusesAsync(CancellationToken.None),
-            "*/15 * * * *"); // Every 15 minutes
+            Cron.Minutely());
     }
 }
