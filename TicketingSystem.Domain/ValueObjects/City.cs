@@ -4,6 +4,10 @@ namespace TicketingSystem.Domain.ValueObjects;
 
 public sealed class City : ValueObject
 {
+    private City()
+    {
+        
+    }
     private City(string name)
     {
         Name = name;

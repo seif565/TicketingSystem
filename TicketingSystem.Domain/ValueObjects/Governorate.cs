@@ -4,6 +4,7 @@ namespace TicketingSystem.Domain.ValueObjects
 {
     public sealed class Governorate : ValueObject
     {
+        private Governorate() { }
         private Governorate(string name)
         {
             Name = name;

@@ -28,4 +28,6 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
     public IQueryable<TEntity> GetAll(Expression<Func<TEntity, bool>> expression) => _ticketDbContext.Set<TEntity>().Where(expression).AsQueryable();
 
     public void Update(TEntity entity) => _ticketDbContext.Set<TEntity>().Update(entity);
+
+    public void UpdateRange(ICollection<TEntity> collection) => _ticketDbContext.Set<TEntity>().UpdateRange(collection);    
 }

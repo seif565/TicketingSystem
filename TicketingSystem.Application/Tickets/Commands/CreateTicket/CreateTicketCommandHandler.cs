@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using TicketingSystem.Domain.Abstractions;
 using TicketingSystem.Domain.Entities;
+using TicketingSystem.Domain.ValueObjects;
 
 namespace TicketingSystem.Application.Tickets.Commands.CreateTicket;
 
@@ -17,7 +18,10 @@ internal sealed class CreateTicketCommandHandler : IRequestHandler<CreateTicketC
 
     public async Task Handle(CreateTicketCommand request, CancellationToken cancellationToken)
     {
-        Ticket ticket = Ticket.Create(request.PhoneNumber, request.Governorate, request.City, request.District);
+        Governorate gov = Governorate.Create(request.Governorate);
+        City city = City.Create(request.City);
+        District district = District.Create(request.District);
+        Ticket ticket = Ticket.Create(request.PhoneNumber, gov, city, district);
         await _ticketRepository.AddAsync(ticket);
         await _unitOfWork.SaveChangesAsync();        
     }

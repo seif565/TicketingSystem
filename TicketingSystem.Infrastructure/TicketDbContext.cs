@@ -13,6 +13,8 @@ namespace TicketingSystem.Infrastructure
         {
         }
 
-        public DbSet<Ticket> Tickets { get; set; }        
+        public DbSet<Ticket> Tickets { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+            => modelBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
     }
 }
